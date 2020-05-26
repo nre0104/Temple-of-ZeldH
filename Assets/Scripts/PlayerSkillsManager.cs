@@ -14,17 +14,24 @@ namespace Assets.Scripts
         public String waterTag;
         public float maxDistToCreateIce;
 
-
-        // Start is called before the first frame update
-        void Start()
-        {
-            
-        }
-
-        // Update is called once per frame
         void Update()
         {
-            
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                PlaceIce();
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                ThrowBomb();
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                SlowTime();
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                SpeedUpTime();
+            }
         }
 
         void PlaceIce()
@@ -53,6 +60,10 @@ namespace Assets.Scripts
 
                 Debug.Log("SLOW");
             }
+            else
+            {
+                SetStandardTime();
+            }
         }
 
         void SpeedUpTime()
@@ -63,6 +74,10 @@ namespace Assets.Scripts
                 Time.timeScale = 1.5f;
 
                 Debug.Log("SPEED");
+            }
+            else
+            {
+                SetStandardTime();
             }
         }
 
