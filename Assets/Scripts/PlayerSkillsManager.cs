@@ -107,9 +107,20 @@ namespace Assets.Scripts
             if (Time.timeScale > 1f)
             {
                 Time.timeScale -= (timeFactor / 2 * Time.deltaTime) / slowDownLength;
+
+                if (Time.timeScale < 1f)
+                {
+                    Time.timeScale = 1f;
+                }
             } else if (Time.timeScale <= 1f)
             {
                 Time.timeScale += (timeFactor / 2 * Time.deltaTime) / slowDownLength;
+                Time.timeScale -= (timeFactor / 2 * Time.deltaTime) / slowDownLength;
+
+                if (Time.timeScale > 1f)
+                {
+                    Time.timeScale = 1f;
+                }
             }
         }
 
