@@ -5,8 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fire
+<<<<<<< HEAD
   - Arrow
   - Sword
+=======
+  - Water
+>>>>>>> develop-skills
   layers:
   - Default
   - TransparentFX
@@ -16,7 +20,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Interaction
   - 
   - 
   - 
