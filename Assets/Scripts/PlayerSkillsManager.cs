@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
-using UnityEngine.Rendering.UI;
 
 namespace Assets.Scripts
 {
