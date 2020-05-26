@@ -21,8 +21,7 @@ namespace Assets.Scripts
 
         public LayerMask interactionLayer;
         public float freezeTime;
-        private Queue<GameObject> frozenObjects = new Queue<GameObject>();
-        private Queue<Vector3> frozenVelocities = new Queue<Vector3>();
+        private GameObject frozenObject;
 
         void Start()
         {
@@ -47,7 +46,7 @@ namespace Assets.Scripts
             {
                 SpeedUpTime();
             }
-            if (Input.GetKey(KeyCode.Alpha5))
+            if (Input.GetKey(KeyCode.E))
             {
                 FreezeObject();
             }
@@ -78,27 +77,20 @@ namespace Assets.Scripts
 
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, maxDistToCreateIce))
+            if (Physics.Raycast(ray, out hit, maxDistToCreateIce, interactionLayer) && frozenObject == null)
             {
-                Debug.Log("Raycast");
+                hit.transform.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                frozenObject = hit.transform.gameObject;
+                Invoke("UnFreezeObject", freezeTime);
 
-                if (hit.transform.gameObject.layer == interactionLayer)
-                {
-                    frozenObjects.Enqueue(hit.transform.gameObject);
-                    frozenVelocities.Enqueue(hit.transform.gameObject.GetComponent<Rigidbody>().velocity);
-
-                    hit.transform.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                    Invoke("UnFreezeObject", freezeTime);
-
-                    Debug.Log("FREEZE");
-                }
+                Debug.Log("FREEZE");
             }
         }
 
         void UnFreezeObject()
         {
-            GameObject obj = frozenObjects.Dequeue();
-            obj.GetComponent<Rigidbody>().velocity = frozenVelocities.Dequeue();
+            frozenObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            frozenObject = null;
         }
 
         void SlowTime()
