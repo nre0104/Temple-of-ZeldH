@@ -4,6 +4,9 @@ namespace Assets.Scripts
 {
     public class PlayerSkillsManager : MonoBehaviour
     {
+        public GameObject hand;
+        public GameObject bombObject;
+        public int throwForce;
 
         // Start is called before the first frame update
         void Start()
@@ -51,7 +54,9 @@ namespace Assets.Scripts
 
         void ThrowBomb()
         {
-
+            GameObject bomb = Instantiate(bombObject, hand.transform.position, Quaternion.identity);
+            Rigidbody r = bomb.GetComponent<Rigidbody>();
+            r.AddForce(hand.transform.forward * throwForce * 1.05f);
         }
     }
 }
