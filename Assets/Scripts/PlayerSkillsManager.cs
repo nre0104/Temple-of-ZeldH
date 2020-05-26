@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -7,6 +8,12 @@ namespace Assets.Scripts
         public GameObject hand;
         public GameObject bombObject;
         public int throwForce;
+
+        public GameObject icePrefab;
+        public Camera camera;
+        public String waterTag;
+        public float maxDistToCreateIce;
+
 
         // Start is called before the first frame update
         void Start()
@@ -22,7 +29,20 @@ namespace Assets.Scripts
 
         void PlaceIce()
         {
+            Ray ray = new Ray(camera.transform.position, camera.transform.forward);
+            Debug.DrawLine(ray.origin, ray.GetPoint(maxDistToCreateIce));
 
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, maxDistToCreateIce))
+            {
+                if (hit.transform.gameObject.CompareTag(waterTag) && hit.transform.gameObject.GetComponent<Rigidbody>() != null)
+                {
+                    Instantiate(icePrefab, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z), Quaternion.identity);
+
+                    Debug.Log("ICE");
+                }
+            }
         }
 
         void SlowTime()
@@ -31,6 +51,7 @@ namespace Assets.Scripts
             {
                 Time.timeScale = 0.25f;
 
+                Debug.Log("SLOW");
             }
         }
 
@@ -41,6 +62,7 @@ namespace Assets.Scripts
             {
                 Time.timeScale = 1.5f;
 
+                Debug.Log("SPEED");
             }
         }
 
@@ -49,6 +71,8 @@ namespace Assets.Scripts
             if (Time.timeScale != 1.0f)
             {
                 Time.timeScale = 1f;
+
+                Debug.Log("NORMAL");
             }
         }
 
@@ -57,6 +81,8 @@ namespace Assets.Scripts
             GameObject bomb = Instantiate(bombObject, hand.transform.position, Quaternion.identity);
             Rigidbody r = bomb.GetComponent<Rigidbody>();
             r.AddForce(hand.transform.forward * throwForce * 1.05f);
+
+            Debug.Log("BOMB");
         }
     }
 }
