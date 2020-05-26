@@ -5,24 +5,19 @@ using UnityEngine;
 public class SwordHitController : MonoBehaviour
 {
     public Camera Cam;
-    public float maxdistance;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float maxDistance;
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Ray ray = new Ray(Cam.transform.position, Cam.transform.forward);
-            Debug.DrawLine(ray.origin, ray.GetPoint(maxdistance));
+            Debug.DrawLine(ray.origin, ray.GetPoint(maxDistance));
 
             RaycastHit hit;
-            if (Physics.Raycast(ray,out hit, maxdistance))
+            if (Physics.Raycast(ray,out hit, maxDistance))
             {
+                // TODO: Make damage
                 Debug.Log(hit.collider.gameObject.name);
             }
          

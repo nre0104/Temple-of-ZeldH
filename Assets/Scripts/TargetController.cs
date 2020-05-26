@@ -6,13 +6,6 @@ public class TargetController : MonoBehaviour
 {
 
     public float Health;
-    
-
-    void Start()
-    {
-        
-    }
-
 
     private void OnCollisionEnter(Collision collision)
     {

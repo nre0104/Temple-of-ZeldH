@@ -3393,7 +3393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cam: {fileID: 5773941065495855944}
-  maxdistance: 4
+  maxDistance: 0
 --- !u!1 &5773941066366695357
 GameObject:
   m_ObjectHideFlags: 0
@@ -4361,8 +4361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sword: {fileID: 5773941066346168672}
   Bow: {fileID: 6335720074680980688}
-  PlayerHealt: 7
-  activWeap: 1
+  ActiveWeapon: 1
 --- !u!1 &5773941066617558104
 GameObject:
   m_ObjectHideFlags: 0
@@ -4827,17 +4826,17 @@ PrefabInstance:
     - target: {fileID: 562342028684233881, guid: b42af134e1c8cb44289683dd72c22409,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.54
+      value: 9.855225
       objectReference: {fileID: 0}
     - target: {fileID: 562342028684233881, guid: b42af134e1c8cb44289683dd72c22409,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.04
+      value: -14.740512
       objectReference: {fileID: 0}
     - target: {fileID: 562342028684233881, guid: b42af134e1c8cb44289683dd72c22409,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 42.78
+      value: 35.9019
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b42af134e1c8cb44289683dd72c22409, type: 3}
