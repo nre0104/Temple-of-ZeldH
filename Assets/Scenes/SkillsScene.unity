@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 1397978792}
   - component: {fileID: 1538905758}
   m_Layer: 0
-  m_Name: FloorPrototype64x01x64
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -533,17 +533,17 @@ PrefabInstance:
     - target: {fileID: 5991856135214928092, guid: ddabec1ada240544baafb91aaeda1690,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5991856135214928092, guid: ddabec1ada240544baafb91aaeda1690,
-        type: 3}
-      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5991856135214928092, guid: ddabec1ada240544baafb91aaeda1690,
         type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0025
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991856135214928092, guid: ddabec1ada240544baafb91aaeda1690,
+        type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5991856135214928092, guid: ddabec1ada240544baafb91aaeda1690,
         type: 3}
@@ -584,6 +584,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991856135214928092, guid: ddabec1ada240544baafb91aaeda1690,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddabec1ada240544baafb91aaeda1690, type: 3}

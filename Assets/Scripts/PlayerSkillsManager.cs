@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityStandardAssets.Characters.FirstPerson;
 
 namespace Assets.Scripts
 {
@@ -24,7 +23,7 @@ namespace Assets.Scripts
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            if (Input.GetKey(KeyCode.Alpha1))
             {
                 PlaceIce();
             }
@@ -51,10 +50,12 @@ namespace Assets.Scripts
 
             if (Physics.Raycast(ray, out hit, maxDistToCreateIce))
             {
+                Debug.Log("Raycast");
+
                 if (hit.transform.gameObject.CompareTag(waterTag))
                 {
                     Instantiate(icePrefab, new Vector3(hit.transform.position.x, hit.transform.position.y + icePrefab.gameObject.transform.localPosition.y, hit.transform.position.z), Quaternion.identity);
-
+                    
                     Debug.Log("ICE");
                 }
             }

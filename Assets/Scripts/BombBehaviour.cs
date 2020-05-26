@@ -33,7 +33,7 @@ namespace Assets.Scripts
                     rigidbody.AddExplosionForce(explosionForce, transform.position, explosionRadius, upModifier);
                 }
 
-                // TODO: Health damage on player (USe explosionDamage)
+                // TODO: Health damage on player (Use explosionDamage)
             }
 
             gameObject.GetComponent<AudioSource>().Play();
