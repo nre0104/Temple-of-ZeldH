@@ -42,8 +42,6 @@ namespace Assets.Scripts
             {
                 SpeedUpTime();
             }
-
-            IncreaseToNormalTime();
         }
 
         void PlaceIce()
@@ -99,28 +97,6 @@ namespace Assets.Scripts
             else
             {
                 SetStandardTime();
-            }
-        }
-        
-        void IncreaseToNormalTime()
-        {
-            if (Time.timeScale > 1f)
-            {
-                Time.timeScale -= (timeFactor / 2 * Time.deltaTime) / slowDownLength;
-
-                if (Time.timeScale < 1f)
-                {
-                    Time.timeScale = 1f;
-                }
-            } else if (Time.timeScale <= 1f)
-            {
-                Time.timeScale += (timeFactor / 2 * Time.deltaTime) / slowDownLength;
-                Time.timeScale -= (timeFactor / 2 * Time.deltaTime) / slowDownLength;
-
-                if (Time.timeScale > 1f)
-                {
-                    Time.timeScale = 1f;
-                }
             }
         }
 
