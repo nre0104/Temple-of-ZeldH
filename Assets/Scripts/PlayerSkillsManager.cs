@@ -20,10 +20,8 @@ namespace Assets.Scripts
         public float freezeTime;
         private GameObject frozenObject;
 
-        void Start()
-        {
-
-        }
+        public float magnetismRange;
+        private GameObject objInUse;
 
         void Update()
         {
@@ -46,6 +44,14 @@ namespace Assets.Scripts
             if (Input.GetKey(KeyCode.E))
             {
                 FreezeObject();
+            }
+            if (Input.GetKey(KeyCode.R))
+            {
+                UseMagnetism();
+            }
+            if (Input.GetKeyUp(KeyCode.R))
+            {
+                ReleaseMagnetism();
             }
         }
 
@@ -146,6 +152,38 @@ namespace Assets.Scripts
             if (Time.timeScale > 1f)
             {
                 
+            }
+        }
+
+        void UseMagnetism()
+        {
+            Ray ray = new Ray(camera.transform.position, camera.transform.forward);
+            Debug.DrawLine(ray.origin, ray.GetPoint(magnetismRange), Color.cyan);
+
+            if (objInUse == null)
+            {
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit, magnetismRange, interactionLayer))
+                {
+                    if (hit.transform.gameObject.GetComponent<Rigidbody>() != null)
+                    {
+                        objInUse = hit.transform.gameObject;
+                        objInUse.transform.parent = camera.transform;
+
+                        objInUse.GetComponent<Rigidbody>().isKinematic = true;
+                    }
+                }
+            }
+        }
+
+        void ReleaseMagnetism() 
+        {
+            if (objInUse != null)
+            {
+                objInUse.GetComponent<Rigidbody>().isKinematic = false;
+                objInUse.transform.parent = null;
+                objInUse = null;
             }
         }
 
