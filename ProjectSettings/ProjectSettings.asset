@@ -593,8 +593,12 @@ PlayerSettings:
     1: CROSS_PLATFORM_INPUT
     4: CROSS_PLATFORM_INPUT;MOBILE_INPUT
     7: CROSS_PLATFORM_INPUT;MOBILE_INPUT
+<<<<<<< HEAD
     13: CROSS_PLATFORM_INPUT
     14: CROSS_PLATFORM_INPUT;MOBILE_INPUT
+=======
+    14: MOBILE_INPUT
+>>>>>>> Playermechanik
   platformArchitecture: {}
   scriptingBackend:
     Standalone: 1
