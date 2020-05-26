@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.Rendering.UI;
@@ -17,7 +18,11 @@ namespace Assets.Scripts
         public float maxDistToCreateIce;
 
         public int timeFactor;
-        public float slowDownLength;
+
+        public LayerMask interactionLayer;
+        public float freezeTime;
+        private Queue<GameObject> frozenObjects = new Queue<GameObject>();
+        private Queue<Vector3> frozenVelocities = new Queue<Vector3>();
 
         void Start()
         {
@@ -42,6 +47,10 @@ namespace Assets.Scripts
             {
                 SpeedUpTime();
             }
+            if (Input.GetKey(KeyCode.Alpha5))
+            {
+                FreezeObject();
+            }
         }
 
         void PlaceIce()
@@ -53,8 +62,6 @@ namespace Assets.Scripts
 
             if (Physics.Raycast(ray, out hit, maxDistToCreateIce))
             {
-                Debug.Log("Raycast");
-
                 if (hit.transform.gameObject.CompareTag(waterTag))
                 {
                     Instantiate(icePrefab, new Vector3(hit.transform.position.x, hit.transform.position.y + icePrefab.gameObject.transform.localPosition.y, hit.transform.position.z), Quaternion.identity);
@@ -62,6 +69,36 @@ namespace Assets.Scripts
                     Debug.Log("ICE");
                 }
             }
+        }
+
+        void FreezeObject()
+        {
+            Ray ray = new Ray(camera.transform.position, camera.transform.forward);
+            Debug.DrawLine(ray.origin, ray.GetPoint(maxDistToCreateIce), Color.red);
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, maxDistToCreateIce))
+            {
+                Debug.Log("Raycast");
+
+                if (hit.transform.gameObject.layer == interactionLayer)
+                {
+                    frozenObjects.Enqueue(hit.transform.gameObject);
+                    frozenVelocities.Enqueue(hit.transform.gameObject.GetComponent<Rigidbody>().velocity);
+
+                    hit.transform.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    Invoke("UnFreezeObject", freezeTime);
+
+                    Debug.Log("FREEZE");
+                }
+            }
+        }
+
+        void UnFreezeObject()
+        {
+            GameObject obj = frozenObjects.Dequeue();
+            obj.GetComponent<Rigidbody>().velocity = frozenVelocities.Dequeue();
         }
 
         void SlowTime()
