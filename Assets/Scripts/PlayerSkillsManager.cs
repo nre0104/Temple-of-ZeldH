@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Threading;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 
 namespace Assets.Scripts
 {
@@ -14,7 +16,8 @@ namespace Assets.Scripts
         public String waterTag;
         public float maxDistToCreateIce;
 
-        public int timeDividerMultiplier;
+        public int timeFactor;
+        public float slowDownLength;
 
         void Start()
         {
@@ -39,6 +42,8 @@ namespace Assets.Scripts
             {
                 SpeedUpTime();
             }
+
+            IncreaseToNormalTime();
         }
 
         void PlaceIce()
@@ -63,11 +68,12 @@ namespace Assets.Scripts
 
         void SlowTime()
         {
-            if (Time.timeScale > 1f)
+            if (Time.timeScale >= 1f)
             {
                 SetStandardTime();
 
-                Time.timeScale /= timeDividerMultiplier;
+
+                Time.timeScale /= timeFactor;
                 SetPlayerToNormalSpeed();
 
                 Debug.Log("SLOW");
@@ -81,11 +87,11 @@ namespace Assets.Scripts
         void SpeedUpTime()
         {
 
-            if (Time.timeScale < 1f)
+            if (Time.timeScale <= 1f)
             {
                 SetStandardTime();
 
-                Time.timeScale *= timeDividerMultiplier;
+                Time.timeScale *= timeFactor;
                 SetPlayerToNormalSpeed();
 
                 Debug.Log("SPEED");
@@ -93,6 +99,17 @@ namespace Assets.Scripts
             else
             {
                 SetStandardTime();
+            }
+        }
+        
+        void IncreaseToNormalTime()
+        {
+            if (Time.timeScale > 1f)
+            {
+                Time.timeScale -= (timeFactor / 2 * Time.deltaTime) / slowDownLength;
+            } else if (Time.timeScale <= 1f)
+            {
+                Time.timeScale += (timeFactor / 2 * Time.deltaTime) / slowDownLength;
             }
         }
 
@@ -109,7 +126,14 @@ namespace Assets.Scripts
         // TODO: Set player to normal speed
         void SetPlayerToNormalSpeed()
         {
-            
+            if (Time.timeScale < 1f)
+            {
+                
+            }
+            if (Time.timeScale > 1f)
+            {
+                
+            }
         }
 
         void ThrowBomb()

@@ -148,7 +148,8 @@ MonoBehaviour:
   camera: {fileID: 1090819651}
   waterTag: Water
   maxDistToCreateIce: 7
-  timeDividerMultiplier: 4
+  timeFactor: 4
+  slowDownLength: 30
 --- !u!1001 &416653310
 PrefabInstance:
   m_ObjectHideFlags: 0
