@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 namespace Assets.Scripts
 {
@@ -13,6 +14,13 @@ namespace Assets.Scripts
         public Camera camera;
         public String waterTag;
         public float maxDistToCreateIce;
+
+        public int timeDividerMultiplier;
+
+        void Start()
+        {
+
+        }
 
         void Update()
         {
@@ -37,15 +45,15 @@ namespace Assets.Scripts
         void PlaceIce()
         {
             Ray ray = new Ray(camera.transform.position, camera.transform.forward);
-            Debug.DrawLine(ray.origin, ray.GetPoint(maxDistToCreateIce));
+            Debug.DrawLine(ray.origin, ray.GetPoint(maxDistToCreateIce), Color.red);
 
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, maxDistToCreateIce))
             {
-                if (hit.transform.gameObject.CompareTag(waterTag) && hit.transform.gameObject.GetComponent<Rigidbody>() != null)
+                if (hit.transform.gameObject.CompareTag(waterTag))
                 {
-                    Instantiate(icePrefab, new Vector3(hit.transform.position.x, hit.transform.position.y, hit.transform.position.z), Quaternion.identity);
+                    Instantiate(icePrefab, new Vector3(hit.transform.position.x, hit.transform.position.y + icePrefab.gameObject.transform.localPosition.y, hit.transform.position.z), Quaternion.identity);
 
                     Debug.Log("ICE");
                 }
@@ -54,9 +62,12 @@ namespace Assets.Scripts
 
         void SlowTime()
         {
-            if (Time.timeScale == 1f)
+            if (Time.timeScale > 1f)
             {
-                Time.timeScale = 0.25f;
+                SetStandardTime();
+
+                Time.timeScale /= timeDividerMultiplier;
+                SetPlayerToNormalSpeed();
 
                 Debug.Log("SLOW");
             }
@@ -69,9 +80,12 @@ namespace Assets.Scripts
         void SpeedUpTime()
         {
 
-            if (Time.timeScale == 1f)
+            if (Time.timeScale < 1f)
             {
-                Time.timeScale = 1.5f;
+                SetStandardTime();
+
+                Time.timeScale *= timeDividerMultiplier;
+                SetPlayerToNormalSpeed();
 
                 Debug.Log("SPEED");
             }
@@ -83,12 +97,18 @@ namespace Assets.Scripts
 
         void SetStandardTime()
         {
-            if (Time.timeScale != 1.0f)
+            if (Time.timeScale != 1f)
             {
                 Time.timeScale = 1f;
 
                 Debug.Log("NORMAL");
             }
+        }
+
+        // TODO: Set player to normal speed
+        void SetPlayerToNormalSpeed()
+        {
+            
         }
 
         void ThrowBomb()
