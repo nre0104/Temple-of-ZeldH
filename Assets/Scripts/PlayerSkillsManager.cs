@@ -169,9 +169,10 @@ namespace Assets.Scripts
                     if (hit.transform.gameObject.GetComponent<Rigidbody>() != null)
                     {
                         objInUse = hit.transform.gameObject;
-                        objInUse.transform.parent = camera.transform;
 
+                        objInUse.transform.parent = camera.transform;
                         objInUse.GetComponent<Rigidbody>().isKinematic = true;
+                        objInUse.GetComponent<Collider>().isTrigger = true;
                     }
                 }
             }
@@ -181,6 +182,7 @@ namespace Assets.Scripts
         {
             if (objInUse != null)
             {
+                objInUse.GetComponent<Collider>().isTrigger = false;
                 objInUse.GetComponent<Rigidbody>().isKinematic = false;
                 objInUse.transform.parent = null;
                 objInUse = null;
