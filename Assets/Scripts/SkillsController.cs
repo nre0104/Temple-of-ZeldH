@@ -15,6 +15,7 @@ namespace Assets.Scripts
         public float maxDistToCreateIce;
 
         public LayerMask interactionLayer;
+        public float freezeRange;
         public float freezeTime;
         private GameObject frozenObject;
 
@@ -74,11 +75,11 @@ namespace Assets.Scripts
         void FreezeObject()
         {
             Ray ray = new Ray(camera.transform.position, camera.transform.forward);
-            Debug.DrawLine(ray.origin, ray.GetPoint(maxDistToCreateIce), Color.red);
+            Debug.DrawLine(ray.origin, ray.GetPoint(freezeRange), Color.red);
 
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, maxDistToCreateIce, interactionLayer) && frozenObject == null)
+            if (Physics.Raycast(ray, out hit, freezeRange, interactionLayer) && frozenObject == null)
             {
                 hit.transform.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                 frozenObject = hit.transform.gameObject;

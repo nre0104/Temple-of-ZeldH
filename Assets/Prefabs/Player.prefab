@@ -3377,6 +3377,7 @@ MonoBehaviour:
   interactionLayer:
     serializedVersion: 2
     m_Bits: 256
+  freezeRange: 15
   freezeTime: 30
   magnetismRange: 15
 --- !u!114 &6940180176980798796
