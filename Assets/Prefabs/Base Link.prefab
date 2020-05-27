@@ -3060,6 +3060,7 @@ GameObject:
   - component: {fileID: 7302933101491690189}
   - component: {fileID: 3318699496366537729}
   - component: {fileID: 8724566334335030214}
+  - component: {fileID: 335720451}
   m_Layer: 0
   m_Name: Base Link
   m_TagString: Untagged
@@ -3352,6 +3353,33 @@ MonoBehaviour:
   Sword: {fileID: 772282740868859295}
   Bow: {fileID: 6928697531157151862}
   ActiveWeapon: 1
+--- !u!114 &335720451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4831009076189301367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa359031c6576f498a5dd42ab5bb1df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: {fileID: 6711321044191697990}
+  bombObject: {fileID: 6993160634551398955, guid: 9c7b9bc1e7d3c3743b275a2496785098,
+    type: 3}
+  throwForce: 1000
+  icePrefab: {fileID: 2660069492592314355, guid: bfb8e87f643663c43aad016d7bd29117,
+    type: 3}
+  camera: {fileID: 8712210548281509943}
+  waterTag: Water
+  maxDistToCreateIce: 7
+  timeFactor: 4
+  interactionLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  freezeTime: 30
+  magnetismRange: 15
 --- !u!1 &4912073311006684128
 GameObject:
   m_ObjectHideFlags: 0
