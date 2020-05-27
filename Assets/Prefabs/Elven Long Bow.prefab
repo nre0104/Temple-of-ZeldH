@@ -24,15 +24,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 562342027638777582}
-  m_LocalRotation: {x: 0.041378416, y: -0.9631844, z: 0.09354301, w: 0.24862304}
-  m_LocalPosition: {x: 2.446, y: 0.667, z: 2.714}
-  m_LocalScale: {x: 0.08000004, y: 0.08, z: 0.08000007}
+  m_LocalRotation: {x: 0.041892808, y: -0.96269196, z: 0.092634335, w: 0.25077513}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_Children:
   - {fileID: 1653516435247749503}
   - {fileID: 562342028684233881}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 11.582001, y: -151.25, z: -1.9420002}
+  m_LocalEulerAnglesHint: {x: 11.5, y: -151, z: -2}
 --- !u!114 &562342027638777580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  arrowPrefab: {fileID: 6780959603939894687, guid: b1d21349e610216489202de4d4bbdd39,
+  arrowPrefab: {fileID: 5882952097672247726, guid: 2e822db3815710d4a9ae5bd0b7978e24,
     type: 3}
   arrowSpawn: {fileID: 562342028684233881}
   shootForce: 20

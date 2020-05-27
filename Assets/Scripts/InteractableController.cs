@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts
 {
-    public class InteractableBehaviour : MonoBehaviour
+    public class InteractableController : MonoBehaviour
     {
 
         void OnTriggerEnter(Collider other)

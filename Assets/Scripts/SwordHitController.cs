@@ -1,26 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SwordHitController : MonoBehaviour
+namespace Assets.Scripts
 {
-    public Camera Cam;
-    public float maxDistance;
-
-    void Update()
+    public class SwordHitController : MonoBehaviour
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            Ray ray = new Ray(Cam.transform.position, Cam.transform.forward);
-            Debug.DrawLine(ray.origin, ray.GetPoint(maxDistance));
+        public Camera Cam;
+        public float maxDistance;
 
-            RaycastHit hit;
-            if (Physics.Raycast(ray,out hit, maxDistance))
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                // TODO: Make damage
-                Debug.Log(hit.collider.gameObject.name);
-            }
+                Ray ray = new Ray(Cam.transform.position, Cam.transform.forward);
+                Debug.DrawLine(ray.origin, ray.GetPoint(maxDistance));
+
+                RaycastHit hit;
+                if (Physics.Raycast(ray,out hit, maxDistance))
+                {
+                    // TODO: Make damage
+                    Debug.Log(hit.collider.gameObject.name);
+                }
          
+            }
         }
     }
 }

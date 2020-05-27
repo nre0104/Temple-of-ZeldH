@@ -1,19 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class TargetController : MonoBehaviour
+namespace Assets.Scripts
 {
-
-    public float Health;
-
-    private void OnCollisionEnter(Collision collision)
+    public class TargetController : MonoBehaviour
     {
-        if(collision.transform.tag == "Arrow" || collision.transform.tag == "Sword")
+
+        public float Health;
+
+        private void OnCollisionEnter(Collision collision)
         {
-            Health--;
-            if (Health < 1) {
-                Destroy(gameObject);
+            if(collision.transform.tag == "Arrow" || collision.transform.tag == "Sword")
+            {
+                Health--;
+                if (Health < 1) {
+                    Destroy(gameObject);
+                }
             }
         }
     }

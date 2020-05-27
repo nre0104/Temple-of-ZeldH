@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts
 {
-    public class IceBehaviour : MonoBehaviour
+    public class IceMeltingController : MonoBehaviour
     {
         public float meltingTime;
 

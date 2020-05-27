@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public class PlayerSkillsManager : MonoBehaviour
+    public class SkillsController : MonoBehaviour
     {
         public GameObject hand;
         public GameObject bombObject;

@@ -3062,7 +3062,7 @@ GameObject:
   - component: {fileID: 8724566334335030214}
   - component: {fileID: 335720451}
   m_Layer: 0
-  m_Name: Base Link
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3374,7 +3374,6 @@ MonoBehaviour:
   camera: {fileID: 8712210548281509943}
   waterTag: Water
   maxDistToCreateIce: 7
-  timeFactor: 4
   interactionLayer:
     serializedVersion: 2
     m_Bits: 256
