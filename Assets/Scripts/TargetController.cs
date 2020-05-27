@@ -4,7 +4,7 @@ namespace Assets.Scripts
 {
     public class TargetController : MonoBehaviour
     {
-        public float Health = 50f;
+        public float Health = 1f;
 
         public void TakeDamage(float amount)
         {

@@ -5,7 +5,7 @@ namespace Assets.Scripts
 {
     public class SkillsController : MonoBehaviour
     {
-        public GameObject hand;
+        public Camera spawnPoint;
         public GameObject bombObject;
         public int throwForce;
 
@@ -130,9 +130,9 @@ namespace Assets.Scripts
 
         void ThrowBomb()
         {
-            GameObject bomb = Instantiate(bombObject, hand.transform.position, Quaternion.identity);
+            GameObject bomb = Instantiate(bombObject, spawnPoint.transform.position, Quaternion.identity);
             Rigidbody r = bomb.GetComponent<Rigidbody>();
-            r.AddForce(hand.transform.forward * throwForce * 1.05f);
+            r.AddForce(spawnPoint.transform.forward * throwForce * 1.05f);
 
             Debug.Log("BOMB");
         }

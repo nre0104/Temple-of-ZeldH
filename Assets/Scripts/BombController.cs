@@ -31,6 +31,14 @@ namespace Assets.Scripts
                 {
                     rigidbody.AddExplosionForce(explosionForce, transform.position, explosionRadius, upModifier);
                 }
+
+                // Health damage
+                TargetController target = collider.GetComponent<TargetController>();
+
+                if (target != null)
+                {
+                    target.TakeDamage(damage);
+                }
             }
 
             gameObject.GetComponent<AudioSource>().Play();
@@ -46,14 +54,6 @@ namespace Assets.Scripts
         {
             Destroy(explosion);
             Destroy(gameObject);
-        }
-
-        void OnCollisionEnter(Collision collision)
-        {
-            if (collision.transform.GetComponent<TargetController>() != null)
-            {
-                collision.transform.GetComponent<TargetController>().TakeDamage(damage);
-            }
         }
     }
 }

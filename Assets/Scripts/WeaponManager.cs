@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts
 {
-    public class WeaponController : MonoBehaviour
+    public class WeaponManager : MonoBehaviour
     {
         public GameObject Sword;
         public GameObject Bow;

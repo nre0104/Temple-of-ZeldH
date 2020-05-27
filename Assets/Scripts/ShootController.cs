@@ -14,7 +14,6 @@ namespace Assets.Scripts
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                // TODO: Fix rotation of arrows
                 GameObject go = Instantiate(arrowPrefab, arrowSpawn.position, arrowSpawn.rotation);
                 Rigidbody rb = go.GetComponent<Rigidbody>();
 
