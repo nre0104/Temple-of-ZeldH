@@ -469,8 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7e4b7583fa2944d8af0bf475f1be9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cam: {fileID: 8712210548281509943}
-  maxDistance: 0
+  damage: 0
 --- !u!1 &838976963539960789
 GameObject:
   m_ObjectHideFlags: 0
@@ -3061,6 +3060,7 @@ GameObject:
   - component: {fileID: 3318699496366537729}
   - component: {fileID: 8724566334335030214}
   - component: {fileID: 335720451}
+  - component: {fileID: 6940180176980798796}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3365,7 +3365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aa359031c6576f498a5dd42ab5bb1df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hand: {fileID: 6711321044191697990}
+  spawnPoint: {fileID: 8712210548281509943}
   bombObject: {fileID: 6993160634551398955, guid: 9c7b9bc1e7d3c3743b275a2496785098,
     type: 3}
   throwForce: 1000
@@ -3379,6 +3379,19 @@ MonoBehaviour:
     m_Bits: 256
   freezeTime: 30
   magnetismRange: 15
+--- !u!114 &6940180176980798796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4831009076189301367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fd592165989d4b4aa70299c41cc65fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 1
 --- !u!1 &4912073311006684128
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,11 +5,10 @@ namespace Assets.Scripts
     public class BombController : MonoBehaviour
     {
         public float delay;
-        public float explosionDamage;
         public float explosionRadius;
         public float explosionForce;
         public float upModifier;
-
+        public float damage;
         public LayerMask interactionLayer;
         public GameObject explosionEffectPrefab;
         private GameObject explosion;
@@ -32,8 +31,6 @@ namespace Assets.Scripts
                 {
                     rigidbody.AddExplosionForce(explosionForce, transform.position, explosionRadius, upModifier);
                 }
-
-                // TODO: Health damage on player (Use explosionDamage)
             }
 
             gameObject.GetComponent<AudioSource>().Play();
@@ -49,6 +46,14 @@ namespace Assets.Scripts
         {
             Destroy(explosion);
             Destroy(gameObject);
+        }
+
+        void OnCollisionEnter(Collision collision)
+        {
+            if (collision.transform.GetComponent<TargetController>() != null)
+            {
+                collision.transform.GetComponent<TargetController>().TakeDamage(damage);
+            }
         }
     }
 }

@@ -4,23 +4,13 @@ namespace Assets.Scripts
 {
     public class SwordHitController : MonoBehaviour
     {
-        public Camera Cam;
-        public float maxDistance;
-
-        void Update()
+        public float damage;
+        
+        void OnCollisionEnter(Collision collision) 
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (collision.transform.GetComponent<TargetController>() != null)
             {
-                Ray ray = new Ray(Cam.transform.position, Cam.transform.forward);
-                Debug.DrawLine(ray.origin, ray.GetPoint(maxDistance));
-
-                RaycastHit hit;
-                if (Physics.Raycast(ray,out hit, maxDistance))
-                {
-                    // TODO: Make damage
-                    Debug.Log(hit.collider.gameObject.name);
-                }
-         
+                collision.transform.GetComponent<TargetController>().TakeDamage(damage);
             }
         }
     }

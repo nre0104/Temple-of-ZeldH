@@ -4,17 +4,25 @@ namespace Assets.Scripts
 {
     public class TargetController : MonoBehaviour
     {
+        public float Health = 50f;
 
-        public float Health;
-
-        private void OnCollisionEnter(Collision collision)
+        public void TakeDamage(float amount)
         {
-            if(collision.transform.tag == "Arrow" || collision.transform.tag == "Sword")
+            Health -= amount;
+            Destroy();
+        }
+
+        public void Die()
+        {
+            Health = 0f;
+            Destroy();
+        }
+
+        void Destroy()
+        {
+            if (Health <= 0f)
             {
-                Health--;
-                if (Health < 1) {
-                    Destroy(gameObject);
-                }
+                Destroy(gameObject);
             }
         }
     }

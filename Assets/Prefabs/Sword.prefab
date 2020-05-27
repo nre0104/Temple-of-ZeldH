@@ -13,6 +13,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.07147956, y: 0.057538893, z: 0.6194823}
   m_Center: {x: -0.0027729124, y: 0.00000023660061, z: -0.10378128}
+--- !u!114 &7607315696278655767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5793452194299650742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7e4b7583fa2944d8af0bf475f1be9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0.4
 --- !u!1001 &2542166562647800767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93,7 +106,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: a70e0a8a046457044a5438364100ef53,
         type: 3}
       propertyPath: m_Name
-      value: MasterSword Variant
+      value: Sword
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: a70e0a8a046457044a5438364100ef53,
         type: 3}

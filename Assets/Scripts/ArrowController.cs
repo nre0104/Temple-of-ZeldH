@@ -1,37 +1,44 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ArrowController : MonoBehaviour
+namespace Assets.Scripts
 {
-    Rigidbody myBody;
-    private float lifeTimer = 3f;
-    private float timer;
-
-    void Start()
+    public class ArrowController : MonoBehaviour
     {
-        myBody = GetComponent<Rigidbody>();
-    }
+        public float damage;
+        private Rigidbody myBody;
+        private float lifeTimer = 3f;
+        private float timer;
 
-    void Update()
-    {
-        timer += Time.deltaTime;
-        if(timer>= lifeTimer)
+        void Start()
         {
-            Destroy(gameObject);
+            myBody = GetComponent<Rigidbody>();
         }
-    }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.collider.tag != "Arrow")
+        void Update()
         {
-            Stick();
+            timer += Time.deltaTime;
+            if(timer>= lifeTimer)
+            {
+                Destroy(gameObject);
+            }
         }
-    }
 
-    private void Stick()
-    {
-        myBody.constraints = RigidbodyConstraints.FreezeAll;
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.transform.GetComponent<TargetController>() != null)
+            {
+                collision.transform.GetComponent<TargetController>().TakeDamage(damage);
+            }
+
+            if (collision.collider.tag != "Arrow")
+            {
+                Stick();
+            }
+        }
+
+        private void Stick()
+        {
+            myBody.constraints = RigidbodyConstraints.FreezeAll;
+        }
     }
 }

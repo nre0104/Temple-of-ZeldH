@@ -41,6 +41,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0118039b35615a8498ace51275ae4869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0.3
 --- !u!1001 &5882952097672281868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50,7 +51,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100002, guid: 432dd2b7c2581c744a40ca43b1307c17, type: 3}
       propertyPath: m_Name
-      value: Elven Long Bow Arrow Variant
+      value: Elven Arrow
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 432dd2b7c2581c744a40ca43b1307c17, type: 3}
       propertyPath: m_TagString
