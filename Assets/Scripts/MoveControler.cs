@@ -8,6 +8,7 @@ public class MoveControler : MonoBehaviour
     public float rotSpeed = 80;
     public float gravity = 8;
     public float rot = 0f;
+    public float jumpSpeed = 8f;
 
     public Vector3 moveDir = Vector3.zero;
 
@@ -24,6 +25,7 @@ public class MoveControler : MonoBehaviour
     {
         movment();
         getInput();
+       // jump();
     }
 
     void movment()
@@ -41,22 +43,39 @@ public class MoveControler : MonoBehaviour
                  moveDir = new Vector3(0, 0, 1);
                  moveDir *= speed;
                  moveDir = transform.TransformDirection(moveDir);
-                 }
-             }
+             }       
+        }
 
-                if (Input.GetKeyUp(KeyCode.W))
-                {
-                    anim.SetBool("running", false);
-                    anim.SetInteger("condition", 0);
-                    moveDir = new Vector3(0, 0, 0);
-                }
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            anim.SetBool("running", false);
+            anim.SetInteger("condition", 0);
+            moveDir = new Vector3(0, 0, 0);
+        }
 
+        /*
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            anim.SetBool("jumping", true);
+            anim.SetInteger("condition", 3);
+            moveDir = new Vector3(0, 3, 0);
+            moveDir *= speed;
+            moveDir = transform.TransformDirection(moveDir);
+        }
+
+        if(anim.GetBool("jumping") == false && anim.GetBool("running") == false)
+        {
+            anim.SetInteger("condition", 0);
+        }
+
+        if (controller.isGrounded)
+        {
+            anim.SetBool("jumping", false);
+        }
+        */
 
         rot += Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
         transform.eulerAngles = new Vector3(0, rot, 0);
-
-
-
 
         moveDir.y -= gravity * Time.deltaTime;
         controller.Move(moveDir * Time.deltaTime);
