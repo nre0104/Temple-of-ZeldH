@@ -14,8 +14,6 @@ namespace Assets.Scripts
         public String waterTag;
         public float maxDistToCreateIce;
 
-        public int timeFactor;
-
         public LayerMask interactionLayer;
         public float freezeTime;
         private GameObject frozenObject;
@@ -35,11 +33,11 @@ namespace Assets.Scripts
             }
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                SlowTime();
+                TimeManager.Instance.SlowDownTime();
             }
             if (Input.GetKeyDown(KeyCode.Alpha4))
             {
-                SpeedUpTime();
+                TimeManager.Instance.SpeedUpTime();
             }
             if (Input.GetKey(KeyCode.E))
             {
@@ -96,65 +94,6 @@ namespace Assets.Scripts
             frozenObject = null;
         }
 
-        void SlowTime()
-        {
-            if (Time.timeScale >= 1f)
-            {
-                SetStandardTime();
-
-
-                Time.timeScale /= timeFactor;
-                SetPlayerToNormalSpeed();
-
-                Debug.Log("SLOW");
-            }
-            else
-            {
-                SetStandardTime();
-            }
-        }
-
-        void SpeedUpTime()
-        {
-
-            if (Time.timeScale <= 1f)
-            {
-                SetStandardTime();
-
-                Time.timeScale *= timeFactor;
-                SetPlayerToNormalSpeed();
-
-                Debug.Log("SPEED");
-            }
-            else
-            {
-                SetStandardTime();
-            }
-        }
-
-        void SetStandardTime()
-        {
-            if (Time.timeScale != 1f)
-            {
-                Time.timeScale = 1f;
-
-                Debug.Log("NORMAL");
-            }
-        }
-
-        // TODO: Set player to normal speed
-        void SetPlayerToNormalSpeed()
-        {
-            if (Time.timeScale < 1f)
-            {
-                
-            }
-            if (Time.timeScale > 1f)
-            {
-                
-            }
-        }
-
         void UseMagnetism()
         {
             Ray ray = new Ray(camera.transform.position, camera.transform.forward);
@@ -169,9 +108,10 @@ namespace Assets.Scripts
                     if (hit.transform.gameObject.GetComponent<Rigidbody>() != null)
                     {
                         objInUse = hit.transform.gameObject;
-                        objInUse.transform.parent = camera.transform;
 
+                        objInUse.transform.parent = camera.transform;
                         objInUse.GetComponent<Rigidbody>().isKinematic = true;
+                        objInUse.GetComponent<Collider>().isTrigger = true;
                     }
                 }
             }
@@ -181,6 +121,7 @@ namespace Assets.Scripts
         {
             if (objInUse != null)
             {
+                objInUse.GetComponent<Collider>().isTrigger = false;
                 objInUse.GetComponent<Rigidbody>().isKinematic = false;
                 objInUse.transform.parent = null;
                 objInUse = null;
