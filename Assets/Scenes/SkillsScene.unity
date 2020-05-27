@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aa359031c6576f498a5dd42ab5bb1df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hand: {fileID: 1618745345}
+  spawnPoint: {fileID: 1090819651}
   bombObject: {fileID: 6993160634551398955, guid: 9c7b9bc1e7d3c3743b275a2496785098,
     type: 3}
   throwForce: 1000
@@ -151,6 +151,7 @@ MonoBehaviour:
   interactionLayer:
     serializedVersion: 2
     m_Bits: 256
+  freezeRange: 10
   freezeTime: 5
   magnetismRange: 10
 --- !u!1001 &416653310
