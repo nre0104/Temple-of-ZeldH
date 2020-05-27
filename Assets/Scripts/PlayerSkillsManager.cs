@@ -14,8 +14,6 @@ namespace Assets.Scripts
         public String waterTag;
         public float maxDistToCreateIce;
 
-        public int timeFactor;
-
         public LayerMask interactionLayer;
         public float freezeTime;
         private GameObject frozenObject;
@@ -35,11 +33,11 @@ namespace Assets.Scripts
             }
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                SlowTime();
+                TimeManager.Instance.SlowDownTime();
             }
             if (Input.GetKeyDown(KeyCode.Alpha4))
             {
-                SpeedUpTime();
+                TimeManager.Instance.SpeedUpTime();
             }
             if (Input.GetKey(KeyCode.E))
             {
@@ -94,65 +92,6 @@ namespace Assets.Scripts
         {
             frozenObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             frozenObject = null;
-        }
-
-        void SlowTime()
-        {
-            if (Time.timeScale >= 1f)
-            {
-                SetStandardTime();
-
-
-                Time.timeScale /= timeFactor;
-                SetPlayerToNormalSpeed();
-
-                Debug.Log("SLOW");
-            }
-            else
-            {
-                SetStandardTime();
-            }
-        }
-
-        void SpeedUpTime()
-        {
-
-            if (Time.timeScale <= 1f)
-            {
-                SetStandardTime();
-
-                Time.timeScale *= timeFactor;
-                SetPlayerToNormalSpeed();
-
-                Debug.Log("SPEED");
-            }
-            else
-            {
-                SetStandardTime();
-            }
-        }
-
-        void SetStandardTime()
-        {
-            if (Time.timeScale != 1f)
-            {
-                Time.timeScale = 1f;
-
-                Debug.Log("NORMAL");
-            }
-        }
-
-        // TODO: Set player to normal speed
-        void SetPlayerToNormalSpeed()
-        {
-            if (Time.timeScale < 1f)
-            {
-                
-            }
-            if (Time.timeScale > 1f)
-            {
-                
-            }
         }
 
         void UseMagnetism()
