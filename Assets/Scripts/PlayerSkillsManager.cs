@@ -115,6 +115,19 @@ namespace Assets.Scripts
                     }
                 }
             }
+
+            // TODO: Maximize/minimize the range
+            if (objInUse != null)
+            {
+                if (Input.GetAxis("Mouse ScrollWheel") > 0f) // +
+                {
+                    objInUse.transform.position += camera.transform.forward;
+                }
+                else if (Input.GetAxis("Mouse ScrollWheel") < 0f) // --
+                {
+                    objInUse.transform.position -= camera.transform.forward;
+                }
+            }
         }
 
         void ReleaseMagnetism() 
