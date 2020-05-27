@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts
 {
-    public class BombBehaviour : MonoBehaviour
+    public class BombController : MonoBehaviour
     {
         public float delay;
         public float explosionDamage;
