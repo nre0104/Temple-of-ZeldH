@@ -66,7 +66,8 @@ namespace Assets.Scripts
                 if (hit.transform.gameObject.CompareTag(waterTag))
                 {
                     Instantiate(icePrefab, new Vector3(hit.transform.position.x, hit.transform.position.y + icePrefab.gameObject.transform.localPosition.y, hit.transform.position.z), Quaternion.identity);
-                    
+                    Destroy(hit.transform.gameObject);
+
                     Debug.Log("ICE");
                 }
             }
@@ -91,8 +92,11 @@ namespace Assets.Scripts
 
         void UnFreezeObject()
         {
-            frozenObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            frozenObject = null;
+            if (frozenObject != null)
+            {
+                frozenObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                frozenObject = null;
+            }
         }
 
         void UseMagnetism()
