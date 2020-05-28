@@ -19,6 +19,7 @@ namespace Assets.Scripts
         public int throwForce;
 
         public GameObject icePrefab;
+        public GameObject transIcePrefab;
         public Camera camera;
         public String waterTag;
         public float maxDistToCreateIce;
