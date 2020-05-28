@@ -10,6 +10,7 @@ public class PlatformControll : MonoBehaviour
     {
         if(other.gameObject == player) {
             other.transform.parent = transform;
+            
         }
     }
 
