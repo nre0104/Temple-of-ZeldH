@@ -1370,6 +1370,11 @@ PrefabInstance:
       propertyPath: debugHitPointTransform
       value: 
       objectReference: {fileID: 1641275509}
+    - target: {fileID: 3251059361560894777, guid: 1f1d8bd204921314bbd596f5f493599a,
+        type: 3}
+      propertyPath: magnetismRange
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5833497985216259582, guid: 1f1d8bd204921314bbd596f5f493599a,
         type: 3}
       propertyPath: m_LocalPosition.x

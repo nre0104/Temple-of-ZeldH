@@ -104,8 +104,8 @@ namespace Assets.Scripts
         {
             Ray ray = new Ray(camera.transform.position, camera.transform.forward);
             Debug.DrawLine(ray.origin, ray.GetPoint(magnetismRange), Color.cyan);
-            float magnitismRangMin = 1f;
             float magnitismRangMax = magnetismRange;
+            float magnitismRangMin = 3f;
 
             if (objInUse == null)
             {
@@ -124,24 +124,30 @@ namespace Assets.Scripts
                     }
                 }
             }
-
-
+            
             // TODO: Maximize/minimize the range
             if (objInUse != null)
             {
                 float distance = Vector3.Distance(transform.position, magnitismPossition);
                 if (Input.GetAxis("Mouse ScrollWheel") > 0f) // +
-                {     
-                    if (distance < magnitismRangMax) {
-                        objInUse.transform.position += camera.transform.forward;
-                    }                  
+                {
+                    if(distance < magnitismRangMax)
+                    {
+                        Vector3 len = objInUse.transform.position += camera.transform.forward;
+                        magnitismPossition = objInUse.transform.position;
+                        distance += Vector3.Distance(transform.position, magnitismPossition);
+                        Debug.Log(distance);
+                    }
                 }
                 else if (Input.GetAxis("Mouse ScrollWheel") < 0f) // --
-                {                    
-                    if (distance > magnitismRangMin)
+                {
+                    if(distance > magnitismRangMin)
                     {
-                        objInUse.transform.position -= camera.transform.forward;
-                    }                 
+                        Vector3 len = objInUse.transform.position -= camera.transform.forward;
+                        magnitismPossition = objInUse.transform.position;
+                        distance -= Vector3.Distance(transform.position, magnitismPossition);
+                        Debug.Log(distance);
+                    }
                 }
             }
         }
