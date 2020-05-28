@@ -100,7 +100,7 @@ public class PlayerCharacterController : MonoBehaviour
         }
 
         // Apply gravity to the velocity
-        float gravityDownForce = -60f;
+        float gravityDownForce = -20f;
         characterVelocityY += gravityDownForce * Time.deltaTime;
 
 
@@ -210,7 +210,7 @@ public class PlayerCharacterController : MonoBehaviour
 
     private bool TestInputDownHookshot()
     {
-        return Input.GetKeyDown(KeyCode.V);
+        return Input.GetKeyDown(KeyCode.Mouse1);
     }
 
     private bool TestInputJump()
