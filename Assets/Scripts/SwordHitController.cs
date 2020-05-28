@@ -8,8 +8,9 @@ namespace Assets.Scripts
         
         void OnCollisionEnter(Collision collision) 
         {
+            Debug.Log("sejiasd");
             if (collision.transform.GetComponent<TargetController>() != null)
-            {
+            { 
                 collision.transform.GetComponent<TargetController>().TakeDamage(damage);
             }
         }
