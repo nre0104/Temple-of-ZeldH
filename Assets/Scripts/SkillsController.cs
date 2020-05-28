@@ -20,6 +20,7 @@ namespace Assets.Scripts
         private GameObject frozenObject;
 
         public float magnetismRange;
+        private Vector3 magnitismPossition;
         private GameObject objInUse;
 
         void Update()
@@ -103,6 +104,8 @@ namespace Assets.Scripts
         {
             Ray ray = new Ray(camera.transform.position, camera.transform.forward);
             Debug.DrawLine(ray.origin, ray.GetPoint(magnetismRange), Color.cyan);
+            float magnitismRangMin = 1f;
+            float magnitismRangMax = magnetismRange;
 
             if (objInUse == null)
             {
@@ -113,6 +116,7 @@ namespace Assets.Scripts
                     if (hit.transform.gameObject.GetComponent<Rigidbody>() != null)
                     {
                         objInUse = hit.transform.gameObject;
+                        magnitismPossition = hit.transform.gameObject.transform.position;
 
                         objInUse.transform.parent = camera.transform;
                         objInUse.GetComponent<Rigidbody>().isKinematic = true;
@@ -121,16 +125,23 @@ namespace Assets.Scripts
                 }
             }
 
+
             // TODO: Maximize/minimize the range
             if (objInUse != null)
             {
+                float distance = Vector3.Distance(transform.position, magnitismPossition);
                 if (Input.GetAxis("Mouse ScrollWheel") > 0f) // +
-                {
-                    objInUse.transform.position += camera.transform.forward;
+                {     
+                    if (distance < magnitismRangMax) {
+                        objInUse.transform.position += camera.transform.forward;
+                    }                  
                 }
                 else if (Input.GetAxis("Mouse ScrollWheel") < 0f) // --
-                {
-                    objInUse.transform.position -= camera.transform.forward;
+                {                    
+                    if (distance > magnitismRangMin)
+                    {
+                        objInUse.transform.position -= camera.transform.forward;
+                    }                 
                 }
             }
         }
