@@ -772,7 +772,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 563261866}
-  - component: {fileID: 563261868}
   - component: {fileID: 563261867}
   m_Layer: 0
   m_Name: MainMenu
@@ -814,14 +813,6 @@ MonoBehaviour:
   hoverSound: {fileID: 0}
   playClickSound: 0
   clickSound: {fileID: 0}
---- !u!81 &563261868
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563261865}
-  m_Enabled: 1
 --- !u!1 &732886863
 GameObject:
   m_ObjectHideFlags: 0
