@@ -53,8 +53,19 @@ public class MenuPause : MonoBehaviour
 
     public void LoadMenu()
     {
-        Debug.Log("LoadScene");
+        Debug.Log("LoadMenu");
         Time.timeScale = 1f;
         SceneManager.LoadScene(sceneStr);
+        
     }
+
+
+    public void Restart()
+    {
+        Debug.Log("Restart Current Level");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+
 }
