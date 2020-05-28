@@ -85,7 +85,7 @@ public class PlayerCharacterController : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
 
-        float moveSpeed = 10f;
+        float moveSpeed = 20f;
 
         Vector3 characterVelocity = transform.right * moveX * moveSpeed + transform.forward * moveZ * moveSpeed;
 
@@ -95,13 +95,13 @@ public class PlayerCharacterController : MonoBehaviour
             // Jump
             if (TestInputJump())
             {
-                float jumpSpeed = 10f;
+                float jumpSpeed = 30f;
                 characterVelocityY = jumpSpeed;
             }
         }
 
         // Apply gravity to the velocity
-        float gravityDownForce = -10f;
+        float gravityDownForce = -20f;
         characterVelocityY += gravityDownForce * Time.deltaTime;
 
 
@@ -211,7 +211,7 @@ public class PlayerCharacterController : MonoBehaviour
 
     private bool TestInputDownHookshot()
     {
-        return Input.GetKeyDown(KeyCode.V);
+        return Input.GetKeyDown(KeyCode.Mouse1);
     }
 
     private bool TestInputJump()

@@ -5,11 +5,21 @@ namespace Assets.Scripts
 {
     public class SkillsController : MonoBehaviour
     {
+        [SerializeField] private Transform iceTransform;
+        [SerializeField] private Transform magnitismTransform;
+
+        private void Awake()
+        {
+            iceTransform.gameObject.SetActive(false);
+            magnitismTransform.gameObject.SetActive(false);
+        }
+
         public Camera spawnPoint;
         public GameObject bombObject;
         public int throwForce;
 
         public GameObject icePrefab;
+        public GameObject transIcePrefab;
         public Camera camera;
         public String waterTag;
         public float maxDistToCreateIce;
@@ -22,6 +32,13 @@ namespace Assets.Scripts
         public float magnetismRange;
         private Vector3 magnitismPossition;
         private GameObject objInUse;
+
+        private Vector3 skillshotPosition;
+        private float skillshotSize;
+        private float animationDrawSpeed = 5f;
+
+        public Material freezMat;
+        public Material stashMat;
 
         void Update()
         {
@@ -83,10 +100,12 @@ namespace Assets.Scripts
 
             if (Physics.Raycast(ray, out hit, freezeRange, interactionLayer) && frozenObject == null)
             {
+                GameObject obj = hit.transform.gameObject;
+                stashMat = obj.GetComponent<Renderer>().material;
+                obj.GetComponent<Renderer>().material = freezMat;
                 hit.transform.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                 frozenObject = hit.transform.gameObject;
                 Invoke("UnFreezeObject", freezeTime);
-
                 Debug.Log("FREEZE");
             }
         }
@@ -96,6 +115,7 @@ namespace Assets.Scripts
             if (frozenObject != null)
             {
                 frozenObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                frozenObject.GetComponent<Renderer>().material = stashMat;
                 frozenObject = null;
             }
         }
@@ -115,6 +135,8 @@ namespace Assets.Scripts
                 {
                     if (hit.transform.gameObject.GetComponent<Rigidbody>() != null)
                     {
+                        skillshotPosition = hit.point;
+                        HandleMagAnimation();
                         objInUse = hit.transform.gameObject;
                         magnitismPossition = hit.transform.gameObject.transform.position;
 
@@ -125,7 +147,6 @@ namespace Assets.Scripts
                 }
             }
             
-            // TODO: Maximize/minimize the range
             if (objInUse != null)
             {
                 float distance = Vector3.Distance(transform.position, magnitismPossition);
@@ -136,7 +157,6 @@ namespace Assets.Scripts
                         Vector3 len = objInUse.transform.position += camera.transform.forward;
                         magnitismPossition = objInUse.transform.position;
                         distance += Vector3.Distance(transform.position, magnitismPossition);
-                        Debug.Log(distance);
                     }
                 }
                 else if (Input.GetAxis("Mouse ScrollWheel") < 0f) // --
@@ -146,7 +166,6 @@ namespace Assets.Scripts
                         Vector3 len = objInUse.transform.position -= camera.transform.forward;
                         magnitismPossition = objInUse.transform.position;
                         distance -= Vector3.Distance(transform.position, magnitismPossition);
-                        Debug.Log(distance);
                     }
                 }
             }
@@ -156,6 +175,7 @@ namespace Assets.Scripts
         {
             if (objInUse != null)
             {
+                StopAnimation();
                 objInUse.GetComponent<Collider>().isTrigger = false;
                 objInUse.GetComponent<Rigidbody>().isKinematic = false;
                 objInUse.transform.parent = null;
@@ -170,6 +190,27 @@ namespace Assets.Scripts
             r.AddForce(spawnPoint.transform.forward * throwForce * 1.05f);
 
             Debug.Log("BOMB");
+        }
+
+        void StopAnimation()
+        {
+            magnitismTransform.gameObject.SetActive(false);
+        }
+
+        void HandleMagAnimation()
+        {
+            magnitismTransform.gameObject.SetActive(true);
+            magnitismTransform.LookAt(skillshotPosition);
+            skillshotSize = Vector3.Distance(transform.position,skillshotPosition);
+            magnitismTransform.localScale = new Vector3(1, 1, skillshotSize);
+        }
+
+        void HandleIceAnimation()
+        {
+            iceTransform.gameObject.SetActive(true);
+            iceTransform.LookAt(skillshotPosition);
+            skillshotSize = Vector3.Distance(transform.position, skillshotPosition);
+            iceTransform.localScale = new Vector3(1, 1, skillshotSize);
         }
     }
 }

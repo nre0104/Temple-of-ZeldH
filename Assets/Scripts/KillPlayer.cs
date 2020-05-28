@@ -13,8 +13,8 @@ public class KillPlayer : MonoBehaviour
             Debug.Log("Kill player");
             col.transform.gameObject.GetComponent<TargetController>().Die();
 
-            MenuPause.Instance.sceneStr = "StartGameMenu";
-            MenuPause.Instance.LoadMenu();
+            PauseMenuController.Instance.mainMenuScene = "StartGameMenu";
+            PauseMenuController.Instance.LoadMenu();
         }
     }
 }
