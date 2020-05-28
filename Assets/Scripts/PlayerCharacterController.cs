@@ -85,7 +85,7 @@ public class PlayerCharacterController : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
 
-        float moveSpeed = 20f;
+        float moveSpeed = 10f;
 
         Vector3 characterVelocity = transform.right * moveX * moveSpeed + transform.forward * moveZ * moveSpeed;
 
@@ -95,13 +95,13 @@ public class PlayerCharacterController : MonoBehaviour
             // Jump
             if (TestInputJump())
             {
-                float jumpSpeed = 30f;
+                float jumpSpeed = 10f;
                 characterVelocityY = jumpSpeed;
             }
         }
 
         // Apply gravity to the velocity
-        float gravityDownForce = -60f;
+        float gravityDownForce = -10f;
         characterVelocityY += gravityDownForce * Time.deltaTime;
 
 
