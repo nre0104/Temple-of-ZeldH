@@ -519,10 +519,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860f3169b1a36c14c87ec66a874f5445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playHoverSound: 1
-  hoverSound: {fileID: 8300000, guid: 0f46b9ecfb41ed14b95c581b2a5a35a1, type: 3}
+  playHoverSound: 0
+  hoverSound: {fileID: 0}
   playClickSound: 0
   clickSound: {fileID: 0}
+  sceneName: 
 --- !u!1 &309903310
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,7 +605,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &539429433
 GameObject:
@@ -813,6 +814,7 @@ MonoBehaviour:
   hoverSound: {fileID: 0}
   playClickSound: 0
   clickSound: {fileID: 0}
+  sceneName: 
 --- !u!1 &732886863
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,10 +1118,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860f3169b1a36c14c87ec66a874f5445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playHoverSound: 1
-  hoverSound: {fileID: 8300000, guid: 0f46b9ecfb41ed14b95c581b2a5a35a1, type: 3}
+  playHoverSound: 0
+  hoverSound: {fileID: 0}
   playClickSound: 0
   clickSound: {fileID: 0}
+  sceneName: 
 --- !u!1 &1197776689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,10 +1519,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860f3169b1a36c14c87ec66a874f5445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playHoverSound: 1
-  hoverSound: {fileID: 8300000, guid: 0f46b9ecfb41ed14b95c581b2a5a35a1, type: 3}
+  playHoverSound: 0
+  hoverSound: {fileID: 0}
   playClickSound: 0
   clickSound: {fileID: 0}
+  sceneName: 
 --- !u!1 &1620222603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1614,7 +1618,7 @@ RectTransform:
   - {fileID: 1197776690}
   - {fileID: 563261866}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1711,7 +1715,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1765438179
 GameObject:
@@ -1934,5 +1938,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
