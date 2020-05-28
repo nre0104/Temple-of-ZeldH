@@ -8,6 +8,20 @@ public class MenuPause : MonoBehaviour
     public static bool GameisPaused = false;
     public GameObject pauseMenuUI;
     public string sceneStr;
+    static MenuPause _instance;
+
+    public static MenuPause Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                GameObject go = new GameObject();
+                _instance = go.AddComponent<MenuPause>();
+            }
+            return _instance;
+        }
+    }
 
     private void Start()
     {
