@@ -398,8 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playHoverSound: 1
   hoverSound: {fileID: 8300000, guid: 0f46b9ecfb41ed14b95c581b2a5a35a1, type: 3}
-  playClickSound: 0
-  clickSound: {fileID: 0}
+  sceneName: 
 --- !u!1 &7403881671158583203
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,8 +955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playHoverSound: 1
   hoverSound: {fileID: 8300000, guid: 0f46b9ecfb41ed14b95c581b2a5a35a1, type: 3}
-  playClickSound: 0
-  clickSound: {fileID: 0}
+  sceneName: 
 --- !u!1 &7403881671323972657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1227,7 +1225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 7403881672186890572}
-  sceneStr: StartGameMenu
+  mainMenuScene: StartGameMenu
 --- !u!1 &7403881672186890572
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,8 +1546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playHoverSound: 1
   hoverSound: {fileID: 8300000, guid: 0f46b9ecfb41ed14b95c581b2a5a35a1, type: 3}
-  playClickSound: 0
-  clickSound: {fileID: 0}
+  sceneName: 
 --- !u!1 &7403881672787235877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1792,5 +1789,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playHoverSound: 1
   hoverSound: {fileID: 8300000, guid: 0f46b9ecfb41ed14b95c581b2a5a35a1, type: 3}
-  playClickSound: 0
-  clickSound: {fileID: 0}
+  sceneName: 

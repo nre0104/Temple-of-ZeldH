@@ -4,13 +4,10 @@ using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts
 {
-    public class MainMenuController : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler 
+    public class MainMenuController : MonoBehaviour, IPointerEnterHandler
     {
-        bool playHoverSound;
-        AudioClip hoverSound;
-
-        bool playClickSound;
-        AudioClip clickSound;
+        public bool playHoverSound;
+        public AudioClip hoverSound;
 
         public string sceneName;
 
@@ -22,19 +19,11 @@ namespace Assets.Scripts
 
         public void OnPointerEnter(PointerEventData eventdata)
         {
-            if (playHoverSound) {
-                AudioSource buttonAudioSource = GetComponent<AudioSource> ();
+            if (playHoverSound)
+            {
+                AudioSource buttonAudioSource = GetComponent<AudioSource>();
                 buttonAudioSource.clip = hoverSound;
-                buttonAudioSource.Play ();
-            }
-        }
-
-        public void OnPointerDown(PointerEventData eventdata)
-        {
-            if (playClickSound) {
-                AudioSource buttonAudioSource = GetComponent<AudioSource> ();
-                buttonAudioSource.clip = clickSound;
-                buttonAudioSource.Play ();
+                buttonAudioSource.Play();
             }
         }
 
