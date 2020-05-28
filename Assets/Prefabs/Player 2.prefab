@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 933032384}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -250,6 +250,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83fa917db1e3dca48b9fc9a2d412ad43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1225992215
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7399385988244658157}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.6677856, z: 1}
+  m_Center: {x: 0, y: 0.9109726, z: 0}
 --- !u!143 &1641597822
 CharacterController:
   m_ObjectHideFlags: 0
@@ -281,7 +294,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 1
-  debugHitPointTransform: {fileID: 0}
+  debugHitPointTransform: {fileID: 2352208864661684422, guid: 8c40ff6a4a3270d4fbfb656b44f08f08,
+    type: 3}
   hookshotTransform: {fileID: 118579246}
 --- !u!114 &1641597826
 MonoBehaviour:
@@ -325,6 +339,44 @@ MonoBehaviour:
   freezeRange: 15
   freezeTime: 30
   magnetismRange: 15
+--- !u!114 &6272474163016165919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7399385988244658157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0a097152e3dbe944a04d90968f13160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7980958792677235155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7399385988880358627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7e4b7583fa2944d8af0bf475f1be9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 3
+--- !u!65 &6820734893887701328
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7399385988880358627}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.07797241, y: 0.057538893, z: 0.6180899}
+  m_Center: {x: 0.0034804717, y: -5.7890116e-12, z: -0.104469754}
 --- !u!1001 &1553191342555268586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -415,17 +467,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 1b93c8ec991e71e4d99fe9bb6ddafec2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.497
+      value: 108
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1b93c8ec991e71e4d99fe9bb6ddafec2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.016
+      value: 28.81
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1b93c8ec991e71e4d99fe9bb6ddafec2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.3841338
+      value: 93.25
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1b93c8ec991e71e4d99fe9bb6ddafec2,
         type: 3}
@@ -470,7 +522,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 1b93c8ec991e71e4d99fe9bb6ddafec2,
         type: 3}
       propertyPath: m_Name
-      value: xbot
+      value: Player 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b93c8ec991e71e4d99fe9bb6ddafec2, type: 3}

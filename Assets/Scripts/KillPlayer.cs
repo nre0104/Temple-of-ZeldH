@@ -8,7 +8,7 @@ public class KillPlayer : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.transform.gameObject.name.Contains("Player"))
+        if (col.transform.gameObject.name.Contains("Player 2"))
         {
             Debug.Log("Kill player");
             col.transform.gameObject.GetComponent<TargetController>().Die();

@@ -21,6 +21,7 @@ public class PlayerCharacterController : MonoBehaviour
     private State state;
     private Vector3 hookshotPosition;
     private float hookshotSize;
+    public Animator anim;
 
     private enum State
     {
