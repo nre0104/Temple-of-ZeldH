@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public class MovementController : MonoBehaviour
+    public class LinkCharacterController : MonoBehaviour
     {
         public float speed = 8;
         public float rotSpeed = 80;

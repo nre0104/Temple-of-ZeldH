@@ -8,10 +8,16 @@ public class KillPlayer : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.transform.gameObject.name.Contains("Player 2"))
+        if (col.transform.gameObject.CompareTag("Player"))
         {
+            HealthController health = col.GetComponent<HealthController>();
+
+            if (health != null)
+            {
+                health.TakeDamage(health.Health);
+            }
+
             Debug.Log("Kill player");
-            col.transform.gameObject.GetComponent<TargetController>().Die();
 
             PauseMenuController.Instance.mainMenuScene = "StartGameMenu";
             PauseMenuController.Instance.LoadMenu();

@@ -25,9 +25,9 @@ namespace Assets.Scripts
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.transform.GetComponent<TargetController>() != null)
+            if (collision.transform.GetComponent<HealthController>() != null)
             {
-                collision.transform.GetComponent<TargetController>().TakeDamage(damage);
+                collision.transform.GetComponent<HealthController>().TakeDamage(damage);
             }
 
             if (collision.collider.tag != "Arrow")
