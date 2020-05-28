@@ -10,7 +10,6 @@ namespace Assets.Scripts
 
         private void Awake()
         {
-            freezTransform.gameObject.SetActive(false);
             iceTransform.gameObject.SetActive(false);
             magnitismTransform.gameObject.SetActive(false);
         }
