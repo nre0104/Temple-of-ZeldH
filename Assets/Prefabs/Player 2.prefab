@@ -358,7 +358,7 @@ MonoBehaviour:
   freezeRange: 15
   freezeTime: 30
   magnetismRange: 15
-  freezMat: {fileID: 0}
+  freezMat: {fileID: 2100000, guid: 1b63db88c70bfb546a506dc26d562972, type: 2}
   stashMat: {fileID: 0}
 --- !u!114 &6272474163016165919
 MonoBehaviour:
