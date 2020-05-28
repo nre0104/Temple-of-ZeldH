@@ -23,12 +23,6 @@ public class MenuPause : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
