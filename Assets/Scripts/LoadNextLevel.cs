@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,8 +17,8 @@ public class LoadNextLevel : MonoBehaviour
         else if(col.transform.gameObject.name.Contains("Player") &&
           SceneManager.GetActiveScene().buildIndex == 3)
         {
-            MenuPause.Instance.sceneStr = "StartGameMenu";
-            MenuPause.Instance.LoadMenu();
+            PauseMenuController.Instance.mainMenuScene = "StartGameMenu";
+            PauseMenuController.Instance.LoadMenu();
         }
 
     }

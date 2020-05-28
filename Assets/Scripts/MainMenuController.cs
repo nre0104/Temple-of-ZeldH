@@ -6,11 +6,11 @@ namespace Assets.Scripts
 {
     public class MainMenuController : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler 
     {
-        public bool playHoverSound;
-        public AudioClip hoverSound;
+        bool playHoverSound;
+        AudioClip hoverSound;
 
-        public bool playClickSound;
-        public AudioClip clickSound;
+        bool playClickSound;
+        AudioClip clickSound;
 
         public string sceneName;
 
