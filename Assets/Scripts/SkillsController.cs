@@ -5,21 +5,13 @@ namespace Assets.Scripts
 {
     public class SkillsController : MonoBehaviour
     {
-        [SerializeField] private Transform iceTransform;
-        [SerializeField] private Transform magnitismTransform;
-
-        private void Awake()
-        {
-            iceTransform.gameObject.SetActive(false);
-            magnitismTransform.gameObject.SetActive(false);
-        }
 
         public Camera spawnPoint;
         public GameObject bombObject;
         public int throwForce;
 
         public GameObject icePrefab;
-        public GameObject transIcePrefab;
+        public Transform iceTransform;
         public Camera camera;
         public String waterTag;
         public float maxDistToCreateIce;
@@ -28,17 +20,23 @@ namespace Assets.Scripts
         public float freezeRange;
         public float freezeTime;
         private GameObject frozenObject;
+        public Material FreezeMaterial;
+        private Material StashMaterial;
 
         public float magnetismRange;
         private Vector3 magnitismPossition;
+        public Transform magnetismTransform;
         private GameObject objInUse;
 
         private Vector3 skillshotPosition;
         private float skillshotSize;
-        private float animationDrawSpeed = 5f;
 
-        public Material freezMat;
-        public Material stashMat;
+        private void Awake()
+        {
+            iceTransform.gameObject.SetActive(false);
+            magnetismTransform.gameObject.SetActive(false);
+        }
+
 
         void Update()
         {
@@ -101,8 +99,8 @@ namespace Assets.Scripts
             if (Physics.Raycast(ray, out hit, freezeRange, interactionLayer) && frozenObject == null)
             {
                 GameObject obj = hit.transform.gameObject;
-                stashMat = obj.GetComponent<Renderer>().material;
-                obj.GetComponent<Renderer>().material = freezMat;
+                StashMaterial = obj.GetComponent<Renderer>().material;
+                obj.GetComponent<Renderer>().material = FreezeMaterial;
                 hit.transform.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                 frozenObject = hit.transform.gameObject;
                 Invoke("UnFreezeObject", freezeTime);
@@ -115,7 +113,7 @@ namespace Assets.Scripts
             if (frozenObject != null)
             {
                 frozenObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-                frozenObject.GetComponent<Renderer>().material = stashMat;
+                frozenObject.GetComponent<Renderer>().material = StashMaterial;
                 frozenObject = null;
             }
         }
@@ -194,15 +192,15 @@ namespace Assets.Scripts
 
         void StopAnimation()
         {
-            magnitismTransform.gameObject.SetActive(false);
+            magnetismTransform.gameObject.SetActive(false);
         }
 
         void HandleMagAnimation()
         {
-            magnitismTransform.gameObject.SetActive(true);
-            magnitismTransform.LookAt(skillshotPosition);
+            magnetismTransform.gameObject.SetActive(true);
+            magnetismTransform.LookAt(skillshotPosition);
             skillshotSize = Vector3.Distance(transform.position,skillshotPosition);
-            magnitismTransform.localScale = new Vector3(1, 1, skillshotSize);
+            magnetismTransform.localScale = new Vector3(1, 1, skillshotSize);
         }
 
         void HandleIceAnimation()

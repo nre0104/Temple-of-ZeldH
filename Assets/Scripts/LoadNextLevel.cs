@@ -1,25 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Assets.Scripts;
+﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadNextLevel : MonoBehaviour
+namespace Assets.Scripts
 {
-   
-    void OnTriggerEnter(Collider col)
+    public class LoadNextLevel : MonoBehaviour
     {
-        if (col.transform.gameObject.name.Contains("Player") && 
-          SceneManager.GetActiveScene().buildIndex == 2)
+        public String nextLevel;
+   
+        void OnTriggerEnter(Collider col)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-        else if(col.transform.gameObject.name.Contains("Player") &&
-          SceneManager.GetActiveScene().buildIndex == 3)
-        {
-            PauseMenuController.Instance.mainMenuScene = "StartGameMenu";
-            PauseMenuController.Instance.LoadMenu();
-        }
+            if (col.transform.gameObject.CompareTag("Player") && 
+                SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                SceneManager.LoadScene(nextLevel, LoadSceneMode.Single);
+            }
+            else if(col.transform.gameObject.CompareTag("Player") &&
+                    SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                PauseMenuController.Instance.mainMenuScene = "StartGameMenu";
+                PauseMenuController.Instance.LoadMenu();
+            }
 
+        }
     }
 }

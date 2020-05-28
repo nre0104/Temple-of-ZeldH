@@ -33,11 +33,11 @@ namespace Assets.Scripts
                 }
 
                 // Health damage
-                TargetController target = collider.GetComponent<TargetController>();
+                HealthController health = collider.GetComponent<HealthController>();
 
-                if (target != null)
+                if (health != null)
                 {
-                    target.TakeDamage(damage);
+                    health.TakeDamage(damage);
                 }
             }
 
