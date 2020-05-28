@@ -814,7 +814,7 @@ MonoBehaviour:
   hoverSound: {fileID: 0}
   playClickSound: 0
   clickSound: {fileID: 0}
-  sceneName: 
+  sceneName: SampleScene_Level1
 --- !u!1 &732886863
 GameObject:
   m_ObjectHideFlags: 0

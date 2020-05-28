@@ -23,11 +23,19 @@ public class MenuPause : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = false;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(GameisPaused)
+            Cursor.visible = true;
+
+            if (GameisPaused)
             {
                 Resume();
             }
@@ -35,6 +43,10 @@ public class MenuPause : MonoBehaviour
             {
                 Pause();
             }
+        }
+        else
+        {
+            Cursor.visible = false;
         }
     }
 

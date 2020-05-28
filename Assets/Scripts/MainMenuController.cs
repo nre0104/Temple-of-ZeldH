@@ -14,6 +14,12 @@ namespace Assets.Scripts
 
         public string sceneName;
 
+        void Start()
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
         public void OnPointerEnter(PointerEventData eventdata)
         {
             if (playHoverSound) {
