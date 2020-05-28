@@ -5,7 +5,7 @@ namespace Assets.Scripts
 {
     public class MovementController : MonoBehaviour
     {
-        public float speed = 4;
+        public float speed = 8;
         public float rotSpeed = 80;
         public float gravity = 8;
         public float rot = 0f;
@@ -55,14 +55,7 @@ namespace Assets.Scripts
             }
 
             /*
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            anim.SetBool("jumping", true);
-            anim.SetInteger("condition", 3);
-            moveDir = new Vector3(0, 3, 0);
-            moveDir *= speed;
-            moveDir = transform.TransformDirection(moveDir);
-        }
+    
 
         if(anim.GetBool("jumping") == false && anim.GetBool("running") == false)
         {
@@ -74,6 +67,14 @@ namespace Assets.Scripts
             anim.SetBool("jumping", false);
         }
         */
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                anim.SetBool("jumping", true);
+                anim.SetInteger("condition", 3);
+                moveDir = new Vector3(0, 3, 0);
+                moveDir *= speed;
+                moveDir = transform.TransformDirection(moveDir);
+            }
 
             rot += Input.GetAxis("Horizontal") * rotSpeed * Time.deltaTime;
             transform.eulerAngles = new Vector3(0, rot, 0);

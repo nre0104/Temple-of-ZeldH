@@ -29,7 +29,6 @@ Transform:
   m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_Children:
   - {fileID: 1653516435247749503}
-  - {fileID: 562342028684233881}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 11.5, y: -151, z: -2}
@@ -48,38 +47,8 @@ MonoBehaviour:
   cam: {fileID: 0}
   arrowPrefab: {fileID: 5882952097672247726, guid: 2e822db3815710d4a9ae5bd0b7978e24,
     type: 3}
-  arrowSpawn: {fileID: 562342028684233881}
+  arrowSpawn: {fileID: 0}
   shootForce: 20
---- !u!1 &562342028684233880
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 562342028684233881}
-  m_Layer: 0
-  m_Name: ArrowSpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &562342028684233881
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562342028684233880}
-  m_LocalRotation: {x: -0.041378416, y: 0.9631844, z: -0.09354301, w: 0.24862304}
-  m_LocalPosition: {x: 23.4, y: -1.4, z: 31.7}
-  m_LocalScale: {x: 12.499986, y: 12.499999, z: 12.499983}
-  m_Children: []
-  m_Father: {fileID: 562342027638777583}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6769246696647700006
 GameObject:
   m_ObjectHideFlags: 0
