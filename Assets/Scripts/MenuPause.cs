@@ -9,6 +9,12 @@ public class MenuPause : MonoBehaviour
     public GameObject pauseMenuUI;
     public string sceneStr;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -55,8 +61,7 @@ public class MenuPause : MonoBehaviour
     {
         Debug.Log("LoadMenu");
         Time.timeScale = 1f;
-        SceneManager.LoadScene(sceneStr);
-        
+        SceneManager.LoadScene(sceneStr, LoadSceneMode.Single);
     }
 
 
