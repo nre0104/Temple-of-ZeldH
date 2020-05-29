@@ -21,6 +21,9 @@ namespace Assets.Scripts
         private State state;
         private Vector3 hookshotPosition;
         private float hookshotSize;
+        public float jumpSpeed;
+        public float moveSpeed;
+        public float gravityDownForce;
         //public Animator anim;
 
         private enum State
@@ -85,8 +88,6 @@ namespace Assets.Scripts
             float moveX = Input.GetAxisRaw("Horizontal");
             float moveZ = Input.GetAxisRaw("Vertical");
 
-            float moveSpeed = 10f;
-
             Vector3 characterVelocity = transform.right * moveX * moveSpeed + transform.forward * moveZ * moveSpeed;
 
             // Jump
@@ -94,12 +95,10 @@ namespace Assets.Scripts
             {
                 characterVelocityY = 0f;
                 Debug.Log("Springen");
-                float jumpSpeed = 20f;
                 characterVelocityY = jumpSpeed;
             }
 
             // Apply gravity to the velocity
-            float gravityDownForce = -20f;
             characterVelocityY += gravityDownForce * Time.deltaTime;
 
 
