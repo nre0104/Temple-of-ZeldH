@@ -25,8 +25,8 @@ namespace Assets.Scripts
 
         void Start()
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = false;
+            //Cursor.lockState = CursorLockMode.None;
+            //Cursor.visible = false;
         }
 
         private void Update()
@@ -37,7 +37,9 @@ namespace Assets.Scripts
 
                 if (GameisPaused)
                 {
-                    Resume();
+                    Resume(); 
+                    Cursor.lockState = CursorLockMode.Locked;
+                    //Cursor.visible = false;
                 }
                 else
                 {
