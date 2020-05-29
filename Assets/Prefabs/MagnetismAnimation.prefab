@@ -89,12 +89,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5333157583763680304}
   m_Layer: 0
-  m_Name: MagnetismusAnim
+  m_Name: MagnetismAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5333157583763680304
 Transform:
   m_ObjectHideFlags: 0

@@ -84,3 +84,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a097152e3dbe944a04d90968f13160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  youDiedCanvas: {fileID: 7362415053732694830, guid: 2723ff468f06c7b4a95554be30ec96a2,
+    type: 3}
