@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4816112320062350151}
   m_Layer: 0
-  m_Name: IceAnim
+  m_Name: IceAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +89,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b3306b63b913adc44af988f0e67b00d5, type: 2}
+  - {fileID: 2100000, guid: 1b63db88c70bfb546a506dc26d562972, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -44,7 +44,7 @@ namespace Assets.Scripts
         {
             if (Input.GetKey(KeyCode.Alpha1))
             {
-                PlaceIce();
+                PlaceIce();               
             }
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
@@ -69,6 +69,11 @@ namespace Assets.Scripts
             if (Input.GetKeyUp(KeyCode.R))
             {
                 ReleaseMagnetism();
+                StopAnimation();
+            }
+            if (Input.GetKeyUp(KeyCode.Alpha1))
+            {
+                StopAnimation();
             }
         }
 
@@ -81,6 +86,8 @@ namespace Assets.Scripts
 
             if (Physics.Raycast(ray, out hit, maxDistToCreateIce))
             {
+                skillshotPosition = hit.point;
+                HandleIceAnimation();
                 if (hit.transform.gameObject.CompareTag(waterTag))
                 {
                     Instantiate(icePrefab, new Vector3(hit.transform.position.x, hit.transform.position.y + icePrefab.gameObject.transform.localPosition.y*1.8f, hit.transform.position.z), Quaternion.identity);
@@ -195,6 +202,7 @@ namespace Assets.Scripts
 
         void StopAnimation()
         {
+            iceTransform.gameObject.SetActive(false);
             magnetismTransform.gameObject.SetActive(false);
         }
 
@@ -210,8 +218,7 @@ namespace Assets.Scripts
         {
             iceTransform.gameObject.SetActive(true);
             iceTransform.LookAt(skillshotPosition);
-            skillshotSize = Vector3.Distance(transform.position, skillshotPosition);
-            iceTransform.localScale = new Vector3(1, 1, skillshotSize);
+            iceTransform.localScale = new Vector3(1, 1, maxDistToCreateIce);
         }
 
         void Melt()
