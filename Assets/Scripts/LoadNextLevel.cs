@@ -7,6 +7,7 @@ namespace Assets.Scripts
     public class LoadNextLevel : MonoBehaviour
     {
         public String nextLevel;
+        public Canvas youWinCanvas;
    
         void OnTriggerEnter(Collider col)
         {
@@ -18,10 +19,20 @@ namespace Assets.Scripts
             else if(col.transform.gameObject.CompareTag("Player") &&
                     SceneManager.GetActiveScene().buildIndex == 3)
             {
-                PauseMenuController.Instance.mainMenuScene = "StartGameMenu";
-                PauseMenuController.Instance.LoadMenu();
+                HealthController health = col.GetComponent<HealthController>();
+
+                Instantiate(youWinCanvas);
+                Debug.Log("Player Win");
+
+                Invoke("LoadMenu", 1f);
             }
 
+        }
+
+        void LoadMenu()
+        {
+            PauseMenuController.Instance.mainMenuScene = "StartGameMenu";
+            PauseMenuController.Instance.LoadMenu();
         }
     }
 }
