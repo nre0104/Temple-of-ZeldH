@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 3004765443355525020}
   - component: {fileID: 3004765443355525021}
   - component: {fileID: 3004765443355525018}
+  - component: {fileID: 2491423474974679251}
+  - component: {fileID: 9170493572647581954}
+  - component: {fileID: 2054104514215655319}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1266,6 +1269,45 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!65 &2491423474974679251
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3004765443355525019}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.014001, y: 1.463551, z: 1.0000012}
+  m_Center: {x: 0.4929958, y: 0.7317755, z: -0.5000006}
+--- !u!65 &9170493572647581954
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3004765443355525019}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 0.7711562, z: 0.9905097}
+  m_Center: {x: 0.49999622, y: -0.47727516, z: -0.49525484}
+--- !u!114 &2054104514215655319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3004765443355525019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90a5aced567426f47ad95ffd1318541b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1 &3004765443510585211
 GameObject:
   m_ObjectHideFlags: 0
@@ -2906,7 +2948,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3004765444436017898}
   m_Layer: 0
-  m_Name: MovingStairs-2 1
+  m_Name: MovingStairs-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2921,7 +2963,7 @@ Transform:
   m_GameObject: {fileID: 3004765444436017899}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 194.00464, y: 29.526804, z: 186.92184}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3333333, y: 0.3333333, z: 0.3333333}
   m_Children:
   - {fileID: 3004765443510585214}
   - {fileID: 3004765443355525022}

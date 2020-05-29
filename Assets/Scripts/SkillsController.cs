@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -15,6 +16,7 @@ namespace Assets.Scripts
         public Camera camera;
         public String waterTag;
         public float maxDistToCreateIce;
+        public Queue<GameObject> turnedIce = new Queue<GameObject>();
 
         public LayerMask interactionLayer;
         public float freezeRange;
@@ -81,9 +83,10 @@ namespace Assets.Scripts
             {
                 if (hit.transform.gameObject.CompareTag(waterTag))
                 {
-                    Instantiate(icePrefab, new Vector3(hit.transform.position.x, hit.transform.position.y + icePrefab.gameObject.transform.localPosition.y, hit.transform.position.z), Quaternion.identity);
-                    Destroy(hit.transform.gameObject);
-
+                    Instantiate(icePrefab, new Vector3(hit.transform.position.x, hit.transform.position.y + icePrefab.gameObject.transform.localPosition.y*1.8f, hit.transform.position.z), Quaternion.identity);
+                    turnedIce.Enqueue(hit.transform.gameObject);
+                    hit.transform.gameObject.SetActive(false);
+                    Invoke("Melt", 5f);
                     Debug.Log("ICE");
                 }
             }
@@ -209,6 +212,12 @@ namespace Assets.Scripts
             iceTransform.LookAt(skillshotPosition);
             skillshotSize = Vector3.Distance(transform.position, skillshotPosition);
             iceTransform.localScale = new Vector3(1, 1, skillshotSize);
+        }
+
+        void Melt()
+        {
+            GameObject go =  turnedIce.Dequeue();
+            go.SetActive(true);
         }
     }
 }

@@ -85,19 +85,17 @@ namespace Assets.Scripts
             float moveX = Input.GetAxisRaw("Horizontal");
             float moveZ = Input.GetAxisRaw("Vertical");
 
-            float moveSpeed = 20f;
+            float moveSpeed = 10f;
 
             Vector3 characterVelocity = transform.right * moveX * moveSpeed + transform.forward * moveZ * moveSpeed;
 
-            if (characterController.isGrounded)
+            // Jump
+            if (TestInputJump())
             {
                 characterVelocityY = 0f;
-                // Jump
-                if (TestInputJump())
-                {
-                    float jumpSpeed = 30f;
-                    characterVelocityY = jumpSpeed;
-                }
+                Debug.Log("Springen");
+                float jumpSpeed = 20f;
+                characterVelocityY = jumpSpeed;
             }
 
             // Apply gravity to the velocity

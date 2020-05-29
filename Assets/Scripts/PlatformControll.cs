@@ -10,12 +10,16 @@ public class PlatformControll : MonoBehaviour
     {
         if(other.gameObject == player) {
             other.transform.parent = transform;
-            
+            Debug.Log(other.transform.parent);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        player.transform.parent = null;
+        if (other.gameObject == player)
+        {
+            player.transform.parent = null;
+            Debug.Log(other.transform.parent + " hoffentlich null");
+        }
     }
 }
