@@ -178,9 +178,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "W, A, S, D: \t\tWalking direction\n1: \t\t\tCreate Iceblock\n2: \t\t\tThrow
-    bomb\n3: \t\t\tSlow Time/Normal Time\n4: \t\t\tSpeed Time/Normal Time\nE: \t\t\tFreeze
-    Object\nF: \t\t\tGrab Object with magnetism (Use Mousewheel to change position)"
+  m_text: "W, A, S, D: \t\tWalking direction\nMausrad Click:   Switch weapon\n1:
+    \t\t\tCreate Iceblock\n2: \t\t\tThrow bomb\n3: \t\t\tSlow Time/Normal Time\n4:
+    \t\t\tSpeed Time/Normal Time\nE: \t\t\tFreeze Object\nF: \t\t\tGrab Object with
+    magnetism (Use Mousewheel to change position)\nMaus 2:               Graplin
+    Hook"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
