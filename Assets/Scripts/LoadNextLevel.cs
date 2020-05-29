@@ -12,12 +12,12 @@ namespace Assets.Scripts
         void OnTriggerEnter(Collider col)
         {
             if (col.transform.gameObject.CompareTag("Player") && 
-                SceneManager.GetActiveScene().buildIndex == 2)
+                SceneManager.GetActiveScene().name == "SampleScene_Level1")
             {
                 SceneManager.LoadScene(nextLevel, LoadSceneMode.Single);
             }
             else if(col.transform.gameObject.CompareTag("Player") &&
-                    SceneManager.GetActiveScene().buildIndex == 3)
+                    SceneManager.GetActiveScene().name == "SampleScene_Level2")
             {
                 HealthController health = col.GetComponent<HealthController>();
 
