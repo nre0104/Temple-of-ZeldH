@@ -39,13 +39,6 @@
 ## Skills:
 - Siehe "How To Play" im Menu
 
-## Abgabe
-### Repo
-[GitHub Repo Tempel of ZeldH3](https://github.com/nre0104/Temple-of-ZeldH)
-
-### Video
-[Video Tempel of ZeldH3]()
-
 ## Hinweis
 Die hier aufgestellten Assets, Sounds und anderen Inhalte sind Teilweise oder ganz von dritten erstellt worden. Soweit von diesen nicht anders angegeben liegt das Urheberrecht bei diesen und wir erheben keinerlei Ansprüche darauf.
 Das Repo dient lediglich zur Projektverwaltung und Projektabgabe für ein internes Hochschulprojekt.
