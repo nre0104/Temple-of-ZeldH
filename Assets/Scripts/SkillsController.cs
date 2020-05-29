@@ -82,10 +82,10 @@ namespace Assets.Scripts
             {
                 if (hit.transform.gameObject.CompareTag(waterTag))
                 {
-                    Instantiate(icePrefab, new Vector3(hit.transform.position.x, hit.transform.position.y + icePrefab.gameObject.transform.localPosition.y, hit.transform.position.z), Quaternion.identity);
+                    Instantiate(icePrefab, new Vector3(hit.transform.position.x, hit.transform.position.y + icePrefab.gameObject.transform.localPosition.y*1.8f, hit.transform.position.z), Quaternion.identity);
                     turnedIce = hit.transform.gameObject;
                     hit.transform.gameObject.SetActive(false);
-                    Invoke("Melt", 3f);
+                    Invoke("Melt", 5f);
                     Debug.Log("ICE");
                 }
             }
