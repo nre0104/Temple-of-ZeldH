@@ -25,7 +25,7 @@ namespace Assets.Scripts
 
         void Start()
         {
-            Cursor.lockState = CursorLockMode.None;
+            //Cursor.lockState = CursorLockMode.None;
             Cursor.visible = false;
         }
 
