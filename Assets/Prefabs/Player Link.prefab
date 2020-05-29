@@ -2954,11 +2954,11 @@ GameObject:
   - component: {fileID: 6940180176980798796}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6053684520028265489
 Transform:
   m_ObjectHideFlags: 0
@@ -3256,21 +3256,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aa359031c6576f498a5dd42ab5bb1df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 8712210548281509943}
+  iceTransform: {fileID: 0}
+  magnetismTransform: {fileID: 0}
+  spawnPoint: {fileID: 0}
   bombObject: {fileID: 6993160634551398955, guid: 9c7b9bc1e7d3c3743b275a2496785098,
     type: 3}
   throwForce: 1000
   icePrefab: {fileID: 2660069492592314355, guid: bfb8e87f643663c43aad016d7bd29117,
     type: 3}
-  camera: {fileID: 8712210548281509943}
+  camera: {fileID: 0}
   waterTag: Water
-  maxDistToCreateIce: 7
+  maxDistToCreateIce: 10
   interactionLayer:
     serializedVersion: 2
     m_Bits: 256
   freezeRange: 15
   freezeTime: 30
   magnetismRange: 15
+  FreezeMaterial: {fileID: 2100000, guid: 1b63db88c70bfb546a506dc26d562972, type: 2}
 --- !u!114 &6940180176980798796
 MonoBehaviour:
   m_ObjectHideFlags: 0

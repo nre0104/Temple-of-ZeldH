@@ -4,7 +4,6 @@ namespace Assets.Scripts
 {
     public class InteractableController : MonoBehaviour
     {
-
         void OnTriggerEnter(Collider other)
         {
             //Debug.Log("Trigger Enter");
