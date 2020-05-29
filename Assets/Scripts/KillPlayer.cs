@@ -12,11 +12,6 @@ public class KillPlayer : MonoBehaviour
         {
             HealthController health = col.GetComponent<HealthController>();
 
-            if (health != null)
-            {
-                health.TakeDamage(health.Health);
-            }
-
             Debug.Log("Kill player");
 
             PauseMenuController.Instance.mainMenuScene = "StartGameMenu";
